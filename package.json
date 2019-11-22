@@ -1,0 +1,29 @@
+{
+  "name": "clubsearchforeashl",
+  "version": "1.0.0",
+  "description": "Club Search for EASHL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "web": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nancek00/clubsearchforeashl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nancek00/clubsearchforeashl/issues"
+  },
+  "homepage": "https://github.com/nancek00/clubsearchforeashl#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "ramda": "^0.26.1"
+  }
+}
