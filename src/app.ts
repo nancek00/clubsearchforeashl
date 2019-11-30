@@ -1,3 +1,9 @@
-import { testRSet } from "./search/search";
+import { uiH2, renderControlElement } from "./ui/elements/createelements";
+import { headerMainLabel, searchTextDef } from "./ui/header";
+import { converge } from "ramda"
 
-testRSet();
+const div2 = document.getElementById('div2') as HTMLDivElement;
+
+
+div2.appendChild(renderControlElement(searchTextDef))
+
