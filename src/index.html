@@ -3,23 +3,16 @@
         <title>
             Club Search for EASHL
         </title>
-        <link rel="stylesheet" type="text/css" href="assets/styles/searchbar.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="assets/styles/searchbar.scss" />
     </head>
     <body>
-        <div class="searchbar-container">
-                <div class="wrap">
-                        <div class="search">
-                           <input type="text" class="searchTerm" placeholder="What are you looking for?">
-                           <button type="submit" class="searchButton">
-                             <i class="fa fa-search"></i>
-                          </button>
-                        </div>
-                    </div>
+        <div class='element-container'>
+                <label>Enter Club Name</label>
+                <input type=text name="clubsearchinput" id="clubsearchinput" placeholder="Club Name">
+                <button id='clubsearchbutton'>Search</button>
         </div>
-        <div id='div2'>
-            
-        </div>
-
         <script src=app.ts></script>
+
     </body>
 </html>
