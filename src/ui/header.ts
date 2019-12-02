@@ -22,3 +22,20 @@ export const searchBoxLabelDef = {
     forId: 'intxt-club-name-input',
     id: 'lbl-club-name-input'
 }
+
+export const platformSwitchDef = {
+    radios: [
+        {
+            id: 'switch-platform-ps4',
+            name: 'switch-platform',
+            value: 'PS4',
+            label: 'PS4'
+        }, 
+        {
+            id: 'switch-platform-xboxone',
+            name: 'switch-platform',
+            value: 'xboxone',
+            label: 'XBOXOne'
+        }
+    ]
+}
