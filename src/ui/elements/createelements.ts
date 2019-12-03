@@ -60,7 +60,7 @@ export function createRadioAndLabel(doc) {
 }
 
 export function createLabelAndInput(doc) {
-    return (inp,lbl) => {
+    return inp => lbl => {
         const div = doc.createElement('div');
         div.appendChild(inp);
         div.appendChild(lbl);
