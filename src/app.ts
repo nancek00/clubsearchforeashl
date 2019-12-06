@@ -13,6 +13,7 @@ const searchInputElement = document.getElementById('clubsearchinput') as HTMLBut
 const searchInputButton = document.getElementById('clubsearchbutton') as HTMLButtonElement;
 
 const handlePlatformChange = platform => { return () => {const d = updateStatePlatform(platform)(defaultState); console.log(d);}}
+
 const platformContainer = document.getElementById('platform-container');
 
 const containerAppend = container => element => {
