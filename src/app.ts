@@ -23,9 +23,37 @@ const containerAppend = container => element => {
 const platformContainerAppend = containerAppend(platformContainer);
 const renderPlatformSwitch = renderSwitch(handlePlatformChange);
 
-platformSwitchDef.radios.map(renderPlatformSwitch).map(platformContainerAppend);
+platformSwitchDef.radios.map(renderPlatformSwitch).forEach(platformContainerAppend);
+
+const renderMyPlatformSwitch = objs => objs.map(renderPlatformSwitch);
+
+const clearNode = container => () => {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
+const clearPlatformNode = clearNode(document.getElementById('platform-container'));
+
+let toggle = false;
 
 searchInputButton.addEventListener('click',() => {
-    if(searchInputElement == null) return;
-    const searchTerm = searchInputElement.value;
+    toggle = !toggle;
+    if(toggle)
+        clearPlatformNode();
+    else {
+        const radioDivs = renderMyPlatformSwitch(platformSwitchDef.radios);
+        radioDivs.forEach(platformContainerAppend);
+    }
 })
+
+const renderAll = state => {
+    const newPromise = new Promise((res,rej) => {
+        const newState = state;
+    });
+
+    return newPromise;
+
+}
+
+
