@@ -32,8 +32,15 @@ const clearNode = container => () => {
         container.removeChild(container.firstChild);
     }
 }
+const appendToNode = container => child => {
+    container.appendChild(child);
+    return container;
+}
+
 
 const clearPlatformNode = clearNode(document.getElementById('platform-container'));
+const clearBodyNode = clearNode(document.querySelector('body'));
+const appendBodyNode = appendToNode(document.querySelector('body'));
 
 let toggle = false;
 
@@ -57,3 +64,51 @@ const renderAll = state => {
 }
 
 
+interface RenderResult {
+    state: State;
+    dom: HTMLElement; 
+}
+interface State {
+    platform: string;
+    counter: number;
+}
+
+const defaultState2 = {platform: 'ps4', counter: 0} as State;
+const createButton = callback => {
+    const bodyElement = document.querySelector('body')
+    const btn = document.createElement('button');
+    btn.addEventListener('click',() => callback());   
+    btn.innerText = "Click Me";
+    return btn;
+}
+const renderBtn = btnFn => state => {
+
+}
+const updateStateProperty = key => newValue => state => {
+    return {
+        ...state,
+        [key]: newValue
+    }
+}
+const updateStateCounter = updateStateProperty("counter");
+
+const t = (state: State) => {
+
+    console.log(" In side t");
+
+    const p = new Promise<State>(res => {
+        clearBodyNode();
+       const btn = createButton(() => res(updateStateCounter(state.counter + 1)(state)));
+         const radioDivs = renderMyPlatformSwitch(platformSwitchDef.radios);
+        radioDivs.forEach(appendBodyNode);
+        appendBodyNode(btn);
+    })
+
+    p.then(result => {
+        console.log("NewState:",result);
+        t(result);
+    })
+   return p;
+}
+
+t(defaultState2).then(result => console.log("p",result));

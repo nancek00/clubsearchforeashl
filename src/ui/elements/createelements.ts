@@ -18,7 +18,13 @@ export function createLabel(doc) {
         return lbl;
     };
 }
-
+export function createDiv(doc) {
+    return obj => {
+        const div = doc.createElement('div');
+        div.id = obj.id;
+        return div;
+    }
+}
 export function createRadio(doc, clickFn) {
     return obj => {
         const radio = doc.createElement('input') as HTMLElement;
@@ -75,10 +81,9 @@ const makeRadioElement = clickFn => createRadio(window.document, clickFn);
 const makeSwitchElement = createRadioAndLabel(window.document);
 
 
-
 export const renderControlElement = converge(makeControlElement, [makeLabelElement, makeInputElement]);
 export const renderSwitch = clickFn => converge(makeSwitchElement, [makeRadioElement(clickFn),makeLabelElement])
-
+export const renderNewDiv = createDiv(window.document);
 
 const label = createLabel(document);
 const obj = { id: "1234", label: "Some Label"};
